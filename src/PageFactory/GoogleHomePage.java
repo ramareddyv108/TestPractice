@@ -6,9 +6,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class GoogleHomePage {
 
@@ -55,7 +53,6 @@ public class GoogleHomePage {
 			/**
 			 * Example for Visibility of Elements located by
 			 */
-			WebDriverWait wait = new WebDriverWait(driver,30);
 			
 			try {
 				Thread.sleep(20000);

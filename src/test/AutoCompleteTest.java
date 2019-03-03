@@ -4,6 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeDriverService;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -17,11 +18,12 @@ public class AutoCompleteTest {
 
 	WebDriver driver;
 	GoogleHomePage objHomePage;
+	private static ChromeDriverService service;
 	
 	@BeforeTest
 	public void setup(){
-		System.setProperty("webdriver.chrome.driver", ".\\src\\resources\\chromedriver.exe");
-		driver = new org.openqa.selenium.chrome.ChromeDriver();
+		System.setProperty("webdriver.chrome.driver", "C:/Users/Rama/git/TestPracticeOne/src/drivers/chromedriver.exe");
+		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.get("http://www.google.com/");
 	}
