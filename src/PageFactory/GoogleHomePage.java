@@ -31,6 +31,7 @@ public class GoogleHomePage {
 			
 			homeGoogleSearch.clear();
 			homeGoogleSearch.sendKeys(searchString);
+			driver.manage().window().maximize();
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			/**
 			 * Example for Visibility of Elements located by
@@ -42,8 +43,6 @@ public class GoogleHomePage {
 			}
 
 			List<WebElement> list = driver.findElements(By.xpath("//ul[@role='listbox']//li"));
-			
-			System.out.println("Auto Suggest List ::" + list.size());
 			return (list.size());
 
 		}
@@ -51,7 +50,7 @@ public class GoogleHomePage {
 		//Get the searchstring actual size
 		public int actualSize(WebDriver driver){
 			
-			int actualSize = 1;
+			int actualSize = 0;
 			homeGoogleSearch.clear();
 			homeGoogleSearch.sendKeys(searchString);
 			
@@ -67,12 +66,8 @@ public class GoogleHomePage {
 
 			List<WebElement> list = driver.findElements(By.xpath("//ul[@role='listbox']//li"));
 			
-			System.out.println("Auto Suggest List ::" + list.size());
-			
 			for(int i = 0 ;i< list.size();i++)
-			{
-				System.out.println(list.get(i).getText());
-				
+			{				
 				if(list.get(i).getText().contains(searchString))
 				{
 					actualSize += 1;

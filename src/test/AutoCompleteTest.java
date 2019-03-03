@@ -5,6 +5,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -19,7 +20,7 @@ public class AutoCompleteTest {
 	GoogleHomePage objHomePage;
 	
 	@BeforeTest
-	public void setup(){
+	public void setUp(){
 		System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -40,6 +41,11 @@ public class AutoCompleteTest {
 	int expectedSize = objHomePage.expectedSize(driver);
 	int actualSize = objHomePage.actualSize(driver);
 	Assert.assertEquals(expectedSize, actualSize);
+	}
+	
+	@AfterTest
+	public void tearDown(){
+	  driver.quit();
 	}
 	
 }
