@@ -18,11 +18,10 @@ public class AutoCompleteTest {
 
 	WebDriver driver;
 	GoogleHomePage objHomePage;
-	private static ChromeDriverService service;
 	
 	@BeforeTest
 	public void setup(){
-		System.setProperty("webdriver.chrome.driver", "C:/Users/Rama/git/TestPracticeOne/src/drivers/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "../../src/drivers/chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.get("http://www.google.com/");
