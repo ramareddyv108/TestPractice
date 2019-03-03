@@ -11,7 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 public class GoogleHomePage {
 
 	WebDriver driver;
-	@FindBy(xpath="//input[@title='search']")
+	@FindBy(xpath="//input[@title='Search']")
 	WebElement homeGoogleSearch;
 	
 	@FindBy(xpath="//ul[@role='listbox']//li")
@@ -20,6 +20,7 @@ public class GoogleHomePage {
 	String searchString = "wedding";
 	
 	public GoogleHomePage(WebDriver driver){
+		
 		this.driver = driver;
 		//This initElements method will create  all WebElements
 		PageFactory.initElements(driver, this);
@@ -27,6 +28,8 @@ public class GoogleHomePage {
 	
 	//Get the searchstring actual size
 		public int expectedSize(WebDriver driver){
+			
+			homeGoogleSearch.clear();
 			homeGoogleSearch.sendKeys(searchString);
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			/**
@@ -41,13 +44,15 @@ public class GoogleHomePage {
 			List<WebElement> list = driver.findElements(By.xpath("//ul[@role='listbox']//li"));
 			
 			System.out.println("Auto Suggest List ::" + list.size());
-			return (list.size() - 1);
+			return (list.size());
 
 		}
 		
 		//Get the searchstring actual size
 		public int actualSize(WebDriver driver){
-			int actualSize = 0;
+			
+			int actualSize = 1;
+			homeGoogleSearch.clear();
 			homeGoogleSearch.sendKeys(searchString);
 			
 			/**
